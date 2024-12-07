@@ -1,0 +1,150 @@
+import 'package:flutter/material.dart';
+
+class VehicleRequirementPage extends StatefulWidget {
+  @override
+  _VehicleRequirementPageState createState() => _VehicleRequirementPageState();
+}
+
+class _VehicleRequirementPageState extends State<VehicleRequirementPage> {
+  final _formKey = GlobalKey<FormState>();
+
+  String _selectedBrand = 'Select Brand';
+  String _selectedModel = 'Select Model';
+  String _selectedVariant = 'Select Variant';
+  String _selectedYear = 'Select Year';
+  String _selectedFuelType = 'Select fuel type';
+  String _selectedColor = 'Select Color';
+  bool _isAutomatic = true; // Default to Automatic
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Vehicle Requirement'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                // Brand
+                DropdownButtonFormField<String>(
+                  value: _selectedBrand,
+                  items: [
+                    DropdownMenuItem(
+                      value: 'Select Brand',
+                      child: Text('Select Brand'),
+                    ),
+                    // Add more brands here
+                    DropdownMenuItem(
+                      value: 'Brand A',
+                      child: Text('Brand A'),
+                    ),
+                    DropdownMenuItem(
+                      value: 'Brand B',
+                      child: Text('Brand B'),
+                    ),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedBrand = value!;
+                    });
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Brand *',
+                  ),
+                ),
+
+                // Model
+                DropdownButtonFormField<String>(
+                  value: _selectedModel,
+                  items: [
+                    DropdownMenuItem(
+                      value: 'Select Model',
+                      child: Text('Select Model'),
+                    ),
+                    // Add more models based on selected brand
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedModel = value!;
+                    });
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Model *',
+                  ),
+                ),
+
+                // Variant
+                // ... similar to Model
+
+                // Year
+                // ... similar to Model
+
+                // Transmission
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _isAutomatic = true;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: _isAutomatic ? Colors.blue : Colors.grey,
+                        ),
+                        child: Text('Automatic'),
+                      ),
+                    ),
+                    SizedBox(width: 16),
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            _isAutomatic = false;
+                          });
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: !_isAutomatic ? Colors.blue : Colors.grey,
+                        ),
+                        child: Text('Manual'),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Fuel
+                // ... similar to Brand
+
+                // Color
+                // ... similar to Brand
+
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // Handle form submission
+                      print('Brand: $_selectedBrand');
+                      print('Model: $_selectedModel');
+                      // ... other fields
+                    }
+                  },
+                  child: Text('Submit'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
