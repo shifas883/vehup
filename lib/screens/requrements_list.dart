@@ -16,7 +16,6 @@ class RequirementListPage extends StatelessWidget {
             color: 'Black',
             status: 'Active',
           ),
-          // Add more RequirementCard widgets for other requirements
         ],
       ),
       bottomNavigationBar: Padding(

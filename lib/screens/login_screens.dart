@@ -55,7 +55,6 @@ class _SignInScreenState extends State<SignInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // Logo
                   const SizedBox(height: 50),
                   Container(
                     width: 75,height: 75,
@@ -67,7 +66,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(height: 24.0),
 
-                  // Welcome Message
                   const Text(
                     "Login With Your Email\n& Password",
                     textAlign: TextAlign.center,
@@ -80,7 +78,6 @@ class _SignInScreenState extends State<SignInScreen> {
 
                   const SizedBox(height: 32.0),
 
-                  // Email Input
                   TextField(
                     controller: usernameController,
                     decoration: const InputDecoration(
@@ -94,7 +91,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(height: 16.0),
 
-                  // Password Input
                   TextField(
                     controller: passwordController,
                     obscureText: _obscurePassword,
@@ -120,12 +116,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(height: 8),
 
-                  // Forgot Password
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {
-                        // Handle forgot password
                       },
                       child: const Text(
                         "Forgot Password?",
@@ -138,7 +132,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(height: 16.0),
 
-                  // Login Button
                   SizedBox(
                     width: double.infinity,
                     height: 50,
@@ -168,14 +161,12 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   const SizedBox(height: 16.0),
 
-                  // Register Link
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text("Don’t have an account? "),
                       GestureDetector(
                         onTap: () {
-                          // Handle navigation to registration
                         },
                         child: const Text(
                           "Register",

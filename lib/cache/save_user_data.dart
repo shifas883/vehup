@@ -5,10 +5,8 @@ Future<void> saveLoginData(LoginResponse loginResponse) async {
   try {
     final prefs = await SharedPreferences.getInstance();
 
-    // Save token
     await prefs.setString('token', loginResponse.token);
 
-    // Save user details
     final user = loginResponse.user;
     await prefs.setInt('id', user.id);
     await prefs.setInt('roleId', user.roleId);
@@ -38,16 +36,14 @@ Future<LoginResponse?> getLoginData() async {
   try {
     final prefs = await SharedPreferences.getInstance();
 
-    // Retrieve token
     final token = prefs.getString('token');
     if (token == null || token.isEmpty) {
-      return null; // No token means user is not logged in
+      return null;
     }
 
-    // Retrieve user details
     final user = User(
-      id: prefs.getInt('id') ?? 0, // Default to 0 if null
-      roleId: prefs.getInt('roleId') ?? 0, // Default to 0 if null
+      id: prefs.getInt('id') ?? 0,
+      roleId: prefs.getInt('roleId') ?? 0,
       name: prefs.getString('name') ?? '',
       email: prefs.getString('email') ?? '',
       emailVerifiedAt: prefs.getString('emailVerifiedAt'),
@@ -57,9 +53,9 @@ Future<LoginResponse?> getLoginData() async {
       latitude: prefs.getDouble('latitude') ?? 0.0,
       longitude: prefs.getDouble('longitude') ?? 0.0,
       status: prefs.getString('status') ?? '',
-      isActive: prefs.getInt('isActive') ?? 0, // Default to 0 if null
-      createdBy: prefs.getInt('createdBy') ?? 0, // Default to 0 if null
-      updatedBy: prefs.getInt('updatedBy') ?? 0, // Default to 0 if null
+      isActive: prefs.getInt('isActive') ?? 0,
+      createdBy: prefs.getInt('createdBy') ?? 0,
+      updatedBy: prefs.getInt('updatedBy') ?? 0,
       createdAt: _parseDateTime(prefs.getString('createdAt')),
       updatedAt: _parseDateTime(prefs.getString('updatedAt')),
     );
@@ -71,7 +67,6 @@ Future<LoginResponse?> getLoginData() async {
   }
 }
 
-// Helper function for DateTime parsing
 DateTime _parseDateTime(String? dateString) {
   try {
     return DateTime.parse(dateString ?? DateTime.now().toIso8601String());

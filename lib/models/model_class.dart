@@ -13,23 +13,17 @@ class LoginRequest {
 
 
 class LoginResponse {
-  // final int code;
-  // final String message;
   final User user;
   final String token;
 
   LoginResponse({
-    // required this.code,
-    // required this.message,
     required this.user,
     required this.token,
   });
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) {
     return LoginResponse(
-      // code: json['code'],
-      // message: json['message'],
-      user: User.fromJson(json['data']), // `data` contains the user details
+      user: User.fromJson(json['data']),
       token: json['token'],
     );
   }

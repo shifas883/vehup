@@ -65,11 +65,11 @@ class AuthRepository {
 
   Future<VehicleDetailsData> getVehicleDetails(
       int vehicleId, String token) async {
-    print("vendor/get-vehicle-details/$vehicleId");
+    print("https://test.vehup.com/api/vendor/get-vehicle-details/$vehicleId");
 
     try {
       final response = await _dio.get(
-        'vendor/get-vehicle-details/$vehicleId',
+        'https://test.vehup.com/api/vendor/get-vehicle-details/$vehicleId',
         options: Options(
           headers: {'Authorization': 'Bearer $token'},
         ),

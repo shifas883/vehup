@@ -76,7 +76,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: <Widget>[
                                   Container(
                                     width: w,
-                                    // height: h/7,
                                     alignment: Alignment.topLeft,
                                     child: Text(
                                       "Confirm",

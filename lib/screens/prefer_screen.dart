@@ -14,7 +14,6 @@ class ChoicePage extends StatelessWidget {
         style: GoogleFonts.roboto(
           color: Colors.black,
           fontSize: 16,
-          // fontWeight: FontWeight.w500
         ),),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),

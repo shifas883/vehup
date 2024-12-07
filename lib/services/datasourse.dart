@@ -24,12 +24,10 @@ class AuthRepository {
 
       print("Raw Response: ${response.data}");
 
-      // Validate response and parse
       if (response.statusCode == 200 && response.data != null) {
         final loginResponse = LoginResponse.fromJson(response.data);
         print("Access Token: ${loginResponse.token}");
 
-        // Save login data
         saveLoginData(loginResponse);
 
         return loginResponse;
@@ -47,7 +45,7 @@ class AuthRepository {
     print(token);
     try {
       final response = await _dio.get(
-        'https://test.vehup.com/api/vendor/get-total-vehicles',
+        VehUpAppUrls.vehicleListUrl,
         options: Options(
           headers: {
             'Authorization': 'Bearer $token',
@@ -65,11 +63,11 @@ class AuthRepository {
 
   Future<VehicleDetailsData> getVehicleDetails(
       int vehicleId, String token) async {
-    print("https://test.vehup.com/api/vendor/get-vehicle-details/$vehicleId");
+    print("${VehUpAppUrls.vehicleDetailsUrl}$vehicleId");
 
     try {
       final response = await _dio.get(
-        'https://test.vehup.com/api/vendor/get-vehicle-details/$vehicleId',
+        '${VehUpAppUrls.vehicleDetailsUrl}$vehicleId',
         options: Options(
           headers: {'Authorization': 'Bearer $token'},
         ),
@@ -78,14 +76,11 @@ class AuthRepository {
       print("Response data: ${response.data}");
 
       if (response.statusCode == 200) {
-        // Parse the response data into VehicleDetailsData and return it
         return VehicleDetailsData.fromJson(response.data['data']);
       } else {
-        // Handle other status codes here if needed, e.g., show a toast message
         throw Exception('Failed to load vehicle details: ${response.data['message']}');
       }
     } catch (e) {
-      // Log the error and rethrow a more specific exception
       print('Error: $e');
       throw Exception('Failed to fetch vehicle details');
     }

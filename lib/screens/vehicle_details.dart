@@ -27,7 +27,6 @@ class VehicleDetailsPage extends StatefulWidget {
 }
 
 class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
-  // CarosalController controller = CarosalController();
   VehicleDetailsData? vehicleDetailsData;
 
   @override
@@ -40,7 +39,6 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
 
           });
         }
-        // TODO: implement listener
       },
       child: Scaffold(
         backgroundColor: Color(0xffF6F6F6),
@@ -64,14 +62,10 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Image carousel
               CarouselSlider(
-                // carouselController: ,
                 items: [
-                  // Add your image URLs here
                   Image.network('https://example.com/car_image1.jpg'),
                   Image.network('https://example.com/car_image2.jpg'),
-                  // ... more images
                 ].map((i) {
                   return Builder(
                     builder: (BuildContext context) {
@@ -84,7 +78,6 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
                         decoration: BoxDecoration(
                           color: Colors.amber,
                         ),
-                        // child: Image.network(i.toString()),
                       );
                     },
                   );
@@ -98,7 +91,6 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
                 ),
               ),
 
-              // Vehicle information
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
@@ -133,7 +125,6 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
                 ),
               ),
 
-              // Tabs
               DefaultTabController(
                 length: 3,
                 child: Column(
@@ -147,18 +138,15 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
                     ),
                     SizedBox(height: 16),
                     Container(
-                      height: 200, // Adjust height as needed
+                      height: 200,
                       child: TabBarView(
                         children: [
-                          // Overview tab content
                           Container(
                             child: Text('Overview content'),
                           ),
-                          // Specification tab content
                           Container(
                             child: Text('Specification content'),
                           ),
-                          // Features tab content
                           Container(
                             child: Text('Features content'),
                           ),
@@ -169,7 +157,6 @@ class _VehicleDetailsPageState extends State<VehicleDetailsPage> {
                 ),
               ),
 
-              // Mark as Sold button
               Padding(
                 padding: const EdgeInsets.all(16),
                 child: ElevatedButton(

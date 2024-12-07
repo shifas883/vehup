@@ -19,7 +19,6 @@ class VehicleDetailsData {
   String? latitude;
   String? longitude;
   String? kmDriven;
-  // DateTime insuranceValidity;
   String? price;
   String? type;
   dynamic? description;
@@ -34,9 +33,6 @@ class VehicleDetailsData {
   dynamic? totalAmount;
   int? createdBy;
   int? updatedBy;
-  // DateTime createdAt;
-  // DateTime updatedAt;
-  // dynamic? deletedAt;
   UserDetails userDetails;
   dynamic? bookingVehicleStatus;
   bool isFavorite;
@@ -79,7 +75,6 @@ class VehicleDetailsData {
     required this.latitude,
     required this.longitude,
     required this.kmDriven,
-    // required this.insuranceValidity,
     required this.price,
     required this.type,
     required this.description,
@@ -94,9 +89,6 @@ class VehicleDetailsData {
     required this.totalAmount,
     required this.createdBy,
     required this.updatedBy,
-    // required this.createdAt,
-    // required this.updatedAt,
-    // required this.deletedAt,
     required this.userDetails,
     required this.bookingVehicleStatus,
     required this.isFavorite,
@@ -141,7 +133,6 @@ class VehicleDetailsData {
       latitude: json['latitude']??'',
       longitude: json['longitude']??'',
       kmDriven: json['kmDriven']??'',
-      // insuranceValidity: DateTime.parse(json['insuranceValidity']),
       price: json['price']??'',
       type: json['type']??'',
       description: json['description']??'',
@@ -156,9 +147,6 @@ class VehicleDetailsData {
       totalAmount: json['totalAmount']??'',
       createdBy: json['createdBy']??0,
       updatedBy: json['updatedBy']??0,
-      // createdAt: DateTime.parse(json['createdAt']),
-      // updatedAt: DateTime.parse(json['updatedAt']),
-      // deletedAt: json['deletedAt'],
       userDetails: UserDetails.fromJson(json['userDetails']),
       bookingVehicleStatus: json['bookingVehicleStatus'],
       isFavorite: json['isFavorite']??false,
@@ -219,7 +207,6 @@ class VehicleDetailsData {
       'latitude': latitude,
       'longitude': longitude,
       'kmDriven': kmDriven,
-      // 'insuranceValidity': insuranceValidity.toIso8601String?()??'',
       'price': price,
       'type': type,
       'description': description,
@@ -234,9 +221,6 @@ class VehicleDetailsData {
       'totalAmount': totalAmount,
       'createdBy': createdBy,
       'updatedBy': updatedBy,
-      // 'createdAt': createdAt.toIso8601String?(),
-      // 'updatedAt': updatedAt.toIso8601String?(),
-      // 'deletedAt': deletedAt,
       'userDetails': userDetails.toJson(),
       'bookingVehicleStatus': bookingVehicleStatus,
       'isFavorite': isFavorite,
@@ -274,10 +258,7 @@ class BodyType {
   String? name;
   int? createdBy;
   int? updatedBy;
-  // DateTime? createdAt;
-  // DateTime? updatedAt;
   Status? status;
-  // dynamic? deletedAt;
   int? fkCategoryId;
   int? fkBrandId;
   int? fkVehicleModelId;
@@ -288,10 +269,7 @@ class BodyType {
     required this.name,
     required this.createdBy,
     required this.updatedBy,
-    // required this.createdAt,
-    // required this.updatedAt,
     this.status,
-    // this.deletedAt,
     this.fkCategoryId,
     this.fkBrandId,
     this.fkVehicleModelId,
@@ -304,12 +282,7 @@ class BodyType {
       name: json['name'],
       createdBy: json['createdBy'],
       updatedBy: json['updatedBy'],
-      // createdAt:
-      //     json['createdAt'] != null ? DateTime.parse(json['createdAt']) : null,
-      // updatedAt:
-      //     json['updatedAt'] != null ? DateTime.parse(json['updatedAt']) : null,
       status: json['status'] != null ? Status.values[json['status']] : null,
-      // deletedAt: json['deletedAt'],
       fkCategoryId: json['fkCategoryId'],
       fkBrandId: json['fkBrandId'],
       fkVehicleModelId: json['fkVehicleModelId'],
@@ -323,10 +296,7 @@ class BodyType {
       'name': name,
       'createdBy': createdBy,
       'updatedBy': updatedBy,
-      // 'createdAt': createdAt?.toIso8601String?(),
-      // 'updatedAt': updatedAt?.toIso8601String?(),
       'status': status?.index,
-      // 'deletedAt': deletedAt,
       'fkCategoryId': fkCategoryId,
       'fkBrandId': fkBrandId,
       'fkVehicleModelId': fkVehicleModelId,
@@ -344,9 +314,6 @@ class Brand {
   Status status;
   int? createdBy;
   int? updatedBy;
-  // DateTime createdAt;
-  // DateTime updatedAt;
-  // dynamic? deletedAt;
   int? fkBrandId;
 
   Brand({
@@ -357,9 +324,6 @@ class Brand {
     required this.status,
     required this.createdBy,
     required this.updatedBy,
-    // required this.createdAt,
-    // required this.updatedAt,
-    // required this.deletedAt,
     this.fkBrandId,
   });
 
@@ -372,9 +336,6 @@ class Brand {
       status: Status.values[json['status']],
       createdBy: json['createdBy'],
       updatedBy: json['updatedBy'],
-      // createdAt: DateTime.parse(json['createdAt']),
-      // updatedAt: DateTime.parse(json['updatedAt']),
-      // deletedAt: json['deletedAt'],
       fkBrandId: json['fkBrandId'],
     );
   }
@@ -388,9 +349,6 @@ class Brand {
       'status': status.index,
       'createdBy': createdBy,
       'updatedBy': updatedBy,
-      // 'createdAt': createdAt.toIso8601String?(),
-      // 'updatedAt': updatedAt.toIso8601String?(),
-      // 'deletedAt': deletedAt,
       'fkBrandId': fkBrandId,
     };
   }
@@ -404,7 +362,6 @@ class Images {
   int? updatedBy;
   DateTime createdAt;
   DateTime updatedAt;
-  // dynamic? deletedAt;
 
   Images({
     required this.id,
@@ -414,7 +371,6 @@ class Images {
     required this.updatedBy,
     required this.createdAt,
     required this.updatedAt,
-    // required this.deletedAt,
   });
 
   factory Images.fromJson(Map<String?, dynamic?> json) {
@@ -426,7 +382,6 @@ class Images {
       updatedBy: json['updatedBy'],
       createdAt: DateTime.parse(json['createdAt']),
       updatedAt: DateTime.parse(json['updatedAt']),
-      // deletedAt: json['deletedAt'],
     );
   }
 
@@ -437,9 +392,6 @@ class Images {
       'imageUrl': imageUrl,
       'createdBy': createdBy,
       'updatedBy': updatedBy,
-      // 'createdAt': createdAt.toIso8601String?(),
-      // 'updatedAt': updatedAt.toIso8601String?(),
-      // 'deletedAt': deletedAt,
     };
   }
 }
@@ -451,9 +403,6 @@ class OverviewDetail {
   String? overviewDetails;
   int? createdBy;
   int? updatedBy;
-  // DateTime createdAt;
-  // DateTime updatedAt;
-  // dynamic? deletedAt;
   Brand overview;
 
   OverviewDetail({
@@ -463,9 +412,6 @@ class OverviewDetail {
     required this.overviewDetails,
     required this.createdBy,
     required this.updatedBy,
-    // required this.createdAt,
-    // required this.updatedAt,
-    // required this.deletedAt,
     required this.overview,
   });
 
@@ -477,9 +423,6 @@ class OverviewDetail {
       overviewDetails: json['overviewDetails'],
       createdBy: json['createdBy'],
       updatedBy: json['updatedBy'],
-      // createdAt: DateTime.parse(json['createdAt']),
-      // updatedAt: DateTime.parse(json['updatedAt']),
-      // deletedAt: json['deletedAt'],
       overview: Brand.fromJson(json['overview']),
     );
   }
@@ -492,9 +435,6 @@ class OverviewDetail {
       'overviewDetails': overviewDetails,
       'createdBy': createdBy,
       'updatedBy': updatedBy,
-      // 'createdAt': createdAt.toIso8601String?(),
-      // 'updatedAt': updatedAt.toIso8601String?(),
-      // 'deletedAt': deletedAt,
       'overview': overview.toJson(),
     };
   }
@@ -507,9 +447,6 @@ class SpecificationDetail {
   String? specificationDetails;
   int? createdBy;
   int? updatedBy;
-  // DateTime createdAt;
-  // DateTime updatedAt;
-  // dynamic? deletedAt;
   BodyType specification;
 
   SpecificationDetail({
@@ -519,9 +456,6 @@ class SpecificationDetail {
     required this.specificationDetails,
     required this.createdBy,
     required this.updatedBy,
-    // required this.createdAt,
-    // required this.updatedAt,
-    // required this.deletedAt,
     required this.specification,
   });
 
@@ -533,9 +467,6 @@ class SpecificationDetail {
       specificationDetails: json['specificationDetails'],
       createdBy: json['createdBy'],
       updatedBy: json['updatedBy'],
-      // createdAt: DateTime.parse(json['createdAt']),
-      // updatedAt: DateTime.parse(json['updatedAt']),
-      // deletedAt: json['deletedAt'],
       specification: BodyType.fromJson(json['specification']),
     );
   }
@@ -548,9 +479,6 @@ class SpecificationDetail {
       'specificationDetails': specificationDetails,
       'createdBy': createdBy,
       'updatedBy': updatedBy,
-      // 'createdAt': createdAt.toIso8601String?(),
-      // 'updatedAt': updatedAt.toIso8601String?(),
-      // 'deletedAt': deletedAt,
       'specification': specification.toJson(),
     };
   }
